@@ -1,6 +1,37 @@
-#inlclude <iostream>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <map>
 using namespace std;
 
+map<string,map<string,int>> k_gram_map(int k, string input) {
+    map<string,map<string,int>> mp;
+    for(int i; i<input.size();i++) { // check k_gram and next char for each i
+        string current_kgram = input.subtr(i,k); // slice from start i to len k
+        char next_char = input[i+k+1];
+        mp[current_kgram][next_char];
+    }
+    return mp;
+}
+
+
 int main(int argc, char* argv[]) {
+    if(argc!=4){
+        cerr << "Usage: <size of chunks> <input.txt> <size of output>"<< endl;
+        exit(1);
+    }
+    int k;
+    string input_file = argv[2];
+    int output_n;
+    string input;
+    
+    ifstream f;
+    f.open(input_file);
+    string line;
+    while(getline(f,line)){
+        input+=line;
+    }
+    cout << input << endl;
+
     return 0;
 }

@@ -1,0 +1,13 @@
+# 1. k-gram math stuff
+- function to calculate the number of occurances of each k-gram
+    - argument should prolly be the input as string
+    - looping through each character (maybe doesnt have to be every c at the end) of the input text and 
+      store it in some kind of Counter() object (look up)
+    - maybe there is a way to store the locations of each k_gram in this so the next function doesnt need 
+      to seek again?
+- function to calculate the number of times, character c follows k_gram w
+    - argument char c and float k_gram
+    - some kind of find-logic for the k_gram and then check input[i+k+1]
+-> function to calculate the the conditional probability
+    - arguments string k_gram and char c return n(w,c)/n(w,*)
+    

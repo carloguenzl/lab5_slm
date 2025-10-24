@@ -1,0 +1,1 @@
+Large language models (LLMs) for AI are all the rage. In this lab you will write a software for working with small language models. The software should read a text file to infer a language model from, and then use that model to generate new “text” (not necessarily correct), thus implementing an Artifical Idiot.

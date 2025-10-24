@@ -8,6 +8,16 @@
 - function to calculate the number of times, character c follows k_gram w
     - argument char c and float k_gram
     - some kind of find-logic for the k_gram and then check input[i+k+1]
+
+NO, scales out of your mind can maybe 1shot 
+
+probably these 2 functions can be run at the same time for every k_gram and every character:
+    - make Counter for each k_gram
+    - in each starting integer k_gram++, check next character k_gram counter for the character ++
+    -> done in 1 loop
+    -> resulting "map of maps" 
+
+
 -> function to calculate the the conditional probability
     - arguments string k_gram and char c return n(w,c)/n(w,*)
     

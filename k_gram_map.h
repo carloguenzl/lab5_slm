@@ -41,10 +41,23 @@ public:
         return values;
     }
 
+    int total_kgram_count(string const outer_key) {
+        vector<int> values = get_values(outer_key);
+        return accumulate(values.begin(),values.end(),0);
+    }
+
+    float frequency(string const outer_key) {
+        int n_all_kgrams = input.size()-k;
+        int total_count = total_kgram_count(outer_key);
+        cout << n_all_kgrams <<" "<< total_count<< endl;
+        return static_cast<float>(total_count)/static_cast<float>(n_all_kgrams);
+    }
+
     float probability(string const outer_key, char const inner_key) {
         vector<int> values = get_values(outer_key);
-        int character_count = values[inner_key];
-        int total_count = accumulate(values.begin(),values.end(),0);
-        return character_count/total_count
+        int character_count = mp[outer_key][inner_key];
+        int total_count = total_kgram_count(outer_key);
+        cout << total_count << " " << character_count << endl;
+        return static_cast<float>(character_count)/static_cast<float>(total_count);
     }
 };

@@ -34,18 +34,14 @@ public:
 
     char choose_next_character(){
         auto it = find(MP.outer_keys.begin(), MP.outer_keys.end(), current_gram); //check if current_gram is in the map 
-        if(it!=MP.outer_keys.end()){
-            vector<char> chars = MP.get_inner_keys(current_gram);
-            vector<float> weights = MP.vprobabilities(current_gram);
-            discrete_distribution<int> dist(weights.begin(),weights.end());
-            int index = dist(rng);
-            cout << chars[index] << endl;
-            return chars[index]
+        if(it==MP.outer_keys.end()){
+            current_gram = choose_start();
         }
-        else{
-            current_kgram = choose_start();
-            choose_next_character();
-        }
+        vector<char> chars = MP.get_inner_keys(current_gram);
+        vector<float> weights = MP.vprobabilities(current_gram);
+        discrete_distribution<int> dist(weights.begin(),weights.end());
+        int index = dist(rng);
+        return chars[index];
     }
 
     void generate(){
@@ -53,3 +49,4 @@ public:
             output+=choose_next_character();
         }
     }
+};

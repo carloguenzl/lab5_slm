@@ -49,7 +49,6 @@ public:
     float frequency(string const outer_key) {
         int n_all_kgrams = input.size()-k;
         int total_count = total_kgram_count(outer_key);
-        cout << n_all_kgrams <<" "<< total_count<< endl;
         return static_cast<float>(total_count)/static_cast<float>(n_all_kgrams);
     }
 
@@ -57,7 +56,6 @@ public:
         vector<int> values = get_values(outer_key);
         int character_count = mp[outer_key][inner_key];
         int total_count = total_kgram_count(outer_key);
-        cout << total_count << " " << character_count << endl;
         return static_cast<float>(character_count)/static_cast<float>(total_count);
     }
 };

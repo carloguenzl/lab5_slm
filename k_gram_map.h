@@ -61,11 +61,19 @@ public:
         return vfreq;
     }
 
-
     float probability(string const outer_key, char const inner_key) {
         vector<int> values = get_values(outer_key);
         int character_count = mp.at(outer_key).at(inner_key);
         int total_count = total_kgram_count(outer_key);
         return static_cast<float>(character_count)/static_cast<float>(total_count);
+    }
+
+    vector<float> vprobabilities(string const outer_key) {
+        vector<float> vprob;
+        for(auto const &key:mp.at(outer_key)) {
+            float prob = probability(outer_key,key.first);
+            vprob.push_back(prob);
+        }
+        return vprob;
     }
 };

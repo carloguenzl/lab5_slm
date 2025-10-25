@@ -33,13 +33,15 @@ vector<char> get_inner_keys(map<char,int> const &input_map) {
 
 
 int main(int argc, char* argv[]) {
-    if(argc!=4){
+    /* if(argc!=4){
         cerr << "Usage: <size of chunks> <input.txt> <size of output>"<< endl;
         exit(1);
-    }
-    int k;
+    } */
+    int k = atoi(argv[1]);
     string input_file = argv[2];
-    int output_n;
+    int output_n = atoi(argv[3]);
+    int n = atoi(argv[3]);
+    int m = atoi(argv[4]);
     string input;
     
     ifstream f;
@@ -49,11 +51,8 @@ int main(int argc, char* argv[]) {
         input+=line;
     }
 
-    map<string, map<char,int>> mp = k_gram_map(3,input);
+    map<string, map<char,int>> mp = k_gram_map(k,input);
 
-
-    int n = 10;
-    int m = 0;
     vector<string> outer_keys = get_outer_keys(mp);
     vector<char> inner_keys = get_inner_keys(mp[outer_keys[n]]);
     int value = mp [outer_keys[n]] [inner_keys[m]];

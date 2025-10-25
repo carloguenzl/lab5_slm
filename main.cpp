@@ -3,7 +3,7 @@
 #include <fstream>
 #include <map>
 #include <vector>
-#include "k_gram_map.h"
+#include "generator.h"
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
         input+=line;
     }
 
-    KGramMap MP(input,k);
+/*     KGramMap MP(input,k);
 
     vector<string> outer_keys = MP.outer_keys;
     vector<char> inner_keys = MP.get_inner_keys(outer_keys[n]);
@@ -39,6 +39,10 @@ int main(int argc, char* argv[]) {
     cout << "key vector sizes: "<<outer_keys.size() << " " << inner_keys.size() << " " << values.size()<< endl;
     cout << "probabilitiy: " << MP.probability(outer_keys[n],inner_keys[m]) << endl;
     float freq =MP.frequency(outer_keys[n]);
-    cout << "frequency: " << freq << endl;
+    cout << "frequency: " << freq << endl; */
+
+    Generator Gen(input,k,output_n);
+    Gen.generate();
+    cout << Gen.output << endl;
     return 0;
 }

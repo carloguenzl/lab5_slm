@@ -46,7 +46,9 @@ public:
 
     void generate(){
         for(int i=0;i<=output_length;i++){
-            output+=choose_next_character();
+            char next = choose_next_character();
+            output+= next;
+            current_gram = current_gram.substr(1) + next;
         }
     }
 };

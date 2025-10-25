@@ -49,7 +49,7 @@ public:
     }
 
     void generate(){
-        for(int i=0,i<=output_length,i++){
+        for(int i=0;i<=output_length;i++){
             output+=choose_next_character();
         }
     }

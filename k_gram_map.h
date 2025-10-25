@@ -27,7 +27,7 @@ public:
 
     vector<char> get_inner_keys(string const outer_key) {
         vector<char> keys;
-        for(auto const &element:mp[outer_key]){
+        for(auto const &element:mp.at(outer_key)){
             keys.push_back(element.first);
         }
         return keys;
@@ -35,7 +35,7 @@ public:
 
     vector<int> get_values(string const outer_key) {
         vector<int> values;
-        for(auto const &element:mp[outer_key]){
+        for(auto const &element:mp.at(outer_key)){
             values.push_back(element.second);
         }
         return values;
@@ -52,9 +52,19 @@ public:
         return static_cast<float>(total_count)/static_cast<float>(n_all_kgrams);
     }
 
+    vector<float> vfrequencies() {
+        vector<float> vfreq;
+        for(auto const &key:outer_keys){
+            float freq = frequency(key);
+            vfreq.push_back(freq);
+        }
+        return vfreq;
+    }
+
+
     float probability(string const outer_key, char const inner_key) {
         vector<int> values = get_values(outer_key);
-        int character_count = mp[outer_key][inner_key];
+        int character_count = mp.at(outer_key).at(inner_key);
         int total_count = total_kgram_count(outer_key);
         return static_cast<float>(character_count)/static_cast<float>(total_count);
     }

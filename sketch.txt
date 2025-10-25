@@ -20,4 +20,15 @@ probably these 2 functions can be run at the same time for every k_gram and ever
 
 -> function to calculate the the conditional probability
     - arguments string k_gram and char c return n(w,c)/n(w,*)
-    
+
+
+
+
+
+# 2. generating stuff
+- choose random from all kgrams in the map, with the frequencies being the distribution
+    - maybe it now makes sense to translate the map into a vector?
+- for this k_gram choose the next character from the probability as distribution
+- add char to k_gram and remove the first character
+- choose next character from the new kgram, if its in the map.
+    -what if not? idk choose random?  

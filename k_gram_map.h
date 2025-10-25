@@ -12,7 +12,7 @@ public:
     map<string,map<char,int>> mp;
     vector<string> outer_keys;
 
-    k_gram_map(const string inp,int n): input(inp),k(n) {
+    KGramMap(const string &inp,int n): input(inp),k(n) {
         for(int i=0; i+k<input.size();i++) {
             string current_kgram = input.substr(i,k);
             char next_char = input[i+k];

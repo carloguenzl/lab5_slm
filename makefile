@@ -1,7 +1,7 @@
 CXX = g++
 
-slm: main.cpp k_gram_map.h generator.h
-	$(CXX) main.cpp -o slm
+slm: src/main.cpp src/k_gram_map.h src/generator.h
+	$(CXX) src/main.cpp -o slm
 
 clean:
 	rm -f slm

@@ -22,5 +22,16 @@ int main(int argc, char* argv[]) {
     Generator Gen(input,k,output_n);
     Gen.generate();
     cout << Gen.output << endl;
+    char keep_going;
+    cout << "keep going? (Y/n) ";
+    cin >> keep_going;
+    while(keep_going=='Y') {
+        Gen.output = "";
+        Gen.generate();
+        cout << Gen.output << endl;
+        cout << "keep going? (Y/n) ";
+        cin >> keep_going;
+    }
+    
     return 0;
 }

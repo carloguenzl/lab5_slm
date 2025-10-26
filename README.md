@@ -18,7 +18,7 @@ To run, use: `./slm <size of k-grams> <input_file.txt> <number of characters in 
 Example: `./slm 5 idiot.txt 100`
 
 ## Results
-To be honest, this algorithm works much better than expected. The results depend highly on the choice of k. For k<5 the resulting text contains much nonsense, because the k-grams rarely resemble recognizable words (so the slm screws up on longer words). When k>10 it begins to copy the input word by word, so its not that useful. The specifics of course depend on the input data, with important characteristics could be average word-length, repetetiveness of the text or total length of the text. The sweetspot for idiot.txt seems to be k=7-10.
+To be honest, this algorithm works much better than I expected. The results depend highly on the choice of k. For k<5 the resulting text contains much nonsense, because the k-grams rarely resemble recognizable words (so the slm screws up on longer words). When k>10 it begins to copy the input word by word, so its not that useful. The specifics of course depend on the input data, with important characteristics could be average word-length, repetetiveness of the text or total length of the text. The sweetspot for idiot.txt seems to be k=7-10.
 
 -> The slm is only as "good" as the data which is fed into it.
 
